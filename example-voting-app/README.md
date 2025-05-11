@@ -3,30 +3,12 @@
 A simple distributed application running across multiple Docker containers.
 
 ## Getting started
+First git clone :
+![git clone](https://github.com/user-attachments/assets/43bcadc2-a5d6-4cb6-97ce-311582777728)
 
-Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows. [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/).
+Up minikube :
+![minikube start](https://github.com/user-attachments/assets/69102b9e-9299-4ec9-9469-5816913fa0cb)
 
-This solution uses Python, Node.js, .NET, with Redis for messaging and Postgres for storage.
-
-Run in this directory to build and run the app:
-
-```shell
-docker compose up
-```
-
-The `vote` app will be running at [http://localhost:8080](http://localhost:8080), and the `results` will be at [http://localhost:8081](http://localhost:8081).
-
-Alternately, if you want to run it on a [Docker Swarm](https://docs.docker.com/engine/swarm/), first make sure you have a swarm. If you don't, run:
-
-```shell
-docker swarm init
-```
-
-Once you have your swarm, in this directory run:
-
-```shell
-docker stack deploy --compose-file docker-stack.yml vote
-```
 
 ## Run the app in Kubernetes
 
@@ -37,8 +19,18 @@ Run the following command to create the deployments and services. Note it will c
 ```shell
 kubectl create -f k8s-specifications/
 ```
+![architecture](https://github.com/user-attachments/assets/87f0ea7a-ec7c-4941-9ed5-fcf9f130ecbb)
+![kubectl apply -f k8s-specifications](https://github.com/user-attachments/assets/36c0af5b-86d8-4b6d-94bb-60b7493d336f)
+
+![demande ouverture du fichiers vote et service](https://github.com/user-attachments/assets/2b2f5f5f-e66f-439a-aae0-a8b43dd259de)
+
+
 
 The `vote` web app is then available on port 31000 on each host of the cluster, the `result` web app is available on port 31001.
+![vote](https://github.com/user-attachments/assets/82116a13-5002-4dc9-befb-d103cec558d5)
+![result](https://github.com/user-attachments/assets/44704c59-20e0-4786-88ab-b85c196feec3)
+
+
 
 To remove them, run:
 
